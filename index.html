@@ -1,0 +1,168 @@
+<!-- aframe documentation: https://aframe.io/docs/1.0.0/introduction/ -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>aframe empty template</title>
+	<script src="./libraries/aframe-1.0.4.min.js"></script>
+	<script src="./libraries/aframe_ply_pointcloud_loader.js"></script>
+	  <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+</head>
+
+<body>
+		<a-scene vr-mode-ui="enabled: false"
+						 loading-screen="enabled: false"
+						 background="color: blue"
+
+
+						 >
+
+
+			<!-- pre-load your assets(models, videos, images etc.) here -->
+			<a-assets>
+				<a-asset-item id="oystermission2-glb" scale="0.1 0.1 0.1" position="1.57989 -4.8016 5.30451" src="./models/oystermission2.glb" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="rock-ply" src="./models/rock-pointcloud.ply" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="skelin-ply" src="./models/skelin.ply" response-type="arraybuffer"></a-asset-item>
+					<a-asset-item id="haukur-glb" src="./models/haukur.glb" response-type="arraybuffer"></a-asset-item>
+						<a-asset-item id="boltasprengja1-ply" src="./models/boltasprengja1.ply" response-type="arraybuffer"></a-asset-item>
+				<a-asset-item id="pumpkin1-glb" rotation="0 243.57599999999996 0" scale="0.2 0.2 0.2" animation="loop: NaN" position="9.727 -0.97971 -0.83195" src="./models/pumpkin1.glb" response-type="arraybuffer"></a-asset-item>
+  			<img id="sky" src="sky1.jpg">
+    		<video id="rocks-mp4" muted autoplay loop="true" src="./video/rocks.mp4"></video>
+				<audio id="song-mp3" src="./audio/song.mp3" preload="auto"></audio>
+			</a-assets>
+
+<a-entity id="ambience"
+					position="0 0 0"
+					sound="src: #song-mp3; autoplay: true; distanceModel: exponential;">
+				</a-entity>
+
+
+			<!-- Scene camera -->
+			<a-entity id=camera camera look-controls position="0 0 0" wasd-controls="acceleration:400"></a-entity>
+
+			<!-- Box primitive -->
+			<a-sphere id="Sphere" scale="1 2.98 1" geometry="primitive: cylinder"
+						color="black"
+						 depth="5"
+						 height="2"
+						 width="3"
+						 position="-2.53621 -2.89073 -13.61321"
+						 rotation="0 45 0">
+			</a-sphere>
+
+			<a-sphere id="Sphere2" scale="1 2.98 1" geometry="primitive: cylinder"
+						color="grey"
+						 depth="5"
+						 height="2"
+						 width="3"
+						 position="9.727 -2.82986 -3.26522"
+						 rotation="0 45 0">
+			</a-sphere>
+
+			<a-plane id="Bekkur"
+			position="3.14249 -4.45635 -9.43"
+			rotation="-90 0 0"
+			width="20" height="20"
+			color="#7BC8A4">
+		</a-plane>
+
+
+
+
+		  <a-sky src="#sky"></a-sky>
+
+
+
+
+			<!-- Text entity -->
+		<!-- <a-text
+					position= "11.22528 2 -12.37851"
+  					rotation= "0 -90 0"
+								width="6"
+									color="white"
+										font="./gt-pressura-light-web-msdf.json"
+											font-image="./gt-pressura-light-web.png"
+											negate="false"
+											value= "LANGI MANGI SVANGI ER FARINN HEIM Í DAG. ">
+			</a-text>-->
+
+
+			<!-- Video primitive -->
+
+  	<!--<a-video id="Video"
+							src="#rocks-mp4"
+							 width="8"
+							 height="4.5"
+							 position="1.74197 0.32443 -10.59478">
+			</a-video>-->
+
+			<!-- PLY point cloud entity -->
+
+
+			<a-entity ply-pointcloud-model="src: #skelin-ply;
+																			pointSize: 0.01"
+								position="6 0 -16"
+								rotation="0 0 -10"
+								scale="10 10 10"
+								animation="property: rotation; to: 0 360 0; loop: true; dur: 100000; easing:linear;">
+			</a-entity>
+
+			<a-entity ply-pointcloud-model="src: #boltasprengja1-ply;
+																			pointSize: 0.01"
+								position="6 0 -16"
+								rotation="0 0 -10"
+								scale="1 1 1"
+								animation="property: rotation; to: 0 360 0; loop: true; dur: 100000; easing:linear;">
+			</a-entity>
+
+
+			<!-- GLB mesh entity -->
+		<a-entity id="oystermission2-glb"
+								gltf-model="#oystermission2-glb"
+								position: "10.10675 -4.32729 0"
+ 								scale: "0.1 0.1 0.1">
+			</a-entity>
+
+			<!-- GLB mesh entity -->
+
+
+
+		<!-- GLB mesh entity -->
+			<a-entity id="pumpkin1-glb"
+									gltf-model="#pumpkin1-glb"
+									position="0 0 -6"
+									scale="0.75 0.75 0.75"
+									animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing:linear;">
+				</a-entity>
+
+				<a-entity id="pumpkin1-glb"
+										gltf-model="#pumpkin1-glb"
+										position="-2.46582 -0.95375 -11.01295"
+										scale="0.2 0.2 0.2">
+					</a-entity>
+
+					<a-entity id="pumpkin1-glb"
+											gltf-model="#pumpkin1-glb"
+											position="9.727 -0.97971 -0.83195"
+											scale="0.2 0.2 0.2">
+						</a-entity>
+
+
+
+
+			<!-- Red directional light shining from the top left. -->
+<a-light color="red" position="-1 1 0"></a-light>
+
+<!-- Blue point light, 5 meters in the air. -->
+<a-light type="point" color="yellow" position="0 5 0"></a-light>
+
+<!-- Dim ambient lighting. -->
+<a-light type="ambient" color="#222"></a-light>
+
+
+		</a-scene>
+</body>
+</html>
